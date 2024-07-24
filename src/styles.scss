@@ -3,29 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    min-height: 100dvh;
-  }
-}
-
-@layer components {
-  .dialog {
-    position: absolute;
-
-    width: clamp(30rem, 60vw, 60rem);
-    height: clamp(30rem, 60vh, 60rem);
-
-    @apply bg-white;
-    @apply rounded-lg;
-  }
-
-  .dialog-backdrop {
-    @apply fixed;
-    @apply inset-0;
-
-    @apply grid;
-    @apply place-items-center;
-
-    background-color: rgba(0, 0, 0, 0.4);
-  }
+    body {
+        @apply min-h-dvh;
+    }
 }
