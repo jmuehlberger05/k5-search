@@ -1,4 +1,11 @@
-import { Component, inject, Input, input, signal } from '@angular/core';
+import {
+    Component,
+    HostListener,
+    inject,
+    Input,
+    input,
+    signal,
+} from '@angular/core';
 import { DialogRef } from '../../services/dialog.service';
 import { NgStyle } from '@angular/common';
 import { SearchInputComponent } from '../search-input/search-input.component';
@@ -46,6 +53,23 @@ export class DialogBackdropComponent {
 })
 export class SearchDialogComponent {
     private readonly dialogRef = inject(DialogRef);
+
+    ngOnInit() {
+        window.addEventListener('keydown', this.handleKeyboardEvent);
+        console.log('SearchDialogComponent initialized');
+    }
+
+    ngOnDestroy() {
+        window.removeEventListener('keydown', this.handleKeyboardEvent);
+        console.log('SearchDialogComponent destroyed');
+    }
+
+    handleKeyboardEvent(event: KeyboardEvent) {
+        if (event.key === 'Escape') {
+            event.preventDefault(); // Prevent default action if needed
+            this.close();
+        }
+    }
 
     protected close() {
         this.dialogRef.close();
