@@ -8,11 +8,9 @@ import {
     Type,
     ViewContainerRef,
 } from '@angular/core';
-import {
-    DialogBackdropComponent,
-    SearchDialogComponent,
-} from '../components/search-dialog/search-dialog.component';
+import { SearchDialogComponent } from '../components/search-dialog/search-dialog.component';
 import { DOCUMENT } from '@angular/common';
+import { DialogBackdropComponent } from '../components/search-dialog/dialog-backdrop.component';
 
 export class DialogRef<TResult = void> {
     close(result: TResult | null = null): void {}
@@ -67,6 +65,10 @@ export class DialogService {
         return new Promise<TResult>((resolve) => {
             dialogRef.close = (result: TResult) => {
                 container.removeChild(backdropComponent.location.nativeElement);
+
+                // backdropComponent.destroy();
+                component.destroy();
+
                 resolve(result);
             };
         });

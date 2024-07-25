@@ -1,3 +1,23 @@
 <main style="display: grid; place-items: center">
-  <button (click)="openSearchDialog()">Open Dialog</button>
+    <button (click)="openSearchDialog()">Open Dialog</button>
+
+    <div class="w-[500px]">
+        <div class="search-result-group grid mt-4">
+            <h2 class="text-sm px-4 py-2">Aktionen</h2>
+            <div class="search-result-group-content flex flex-col">
+                <app-search-accordeon />
+                <app-search-accordeon />
+                <app-search-accordeon />
+            </div>
+        </div>
+
+        <div class="search-result-group grid mt-4">
+            <h2 class="text-sm px-4 py-2">Kontakte</h2>
+            <div class="search-result-group-content flex flex-col">
+                <app-search-accordeon />
+                <app-search-accordeon />
+                <app-search-accordeon />
+            </div>
+        </div>
+    </div>
 </main>

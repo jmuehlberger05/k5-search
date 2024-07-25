@@ -1,0 +1,19 @@
+.accordeon {
+    // .accordeon-content {
+    //     display: none;
+    // }
+
+    height: 40px;
+    transition: height 0.3s ease-in-out;
+
+    &[data-open="true"] {
+        height: 176px;
+        // .accordeon-content {
+        //     display: block;
+        // }
+
+        .accordeon-header-title-span {
+            font-weight: 500;
+        }
+    }
+}

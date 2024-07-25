@@ -1,11 +1,12 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DialogService } from './shared/services/dialog.service';
+import { SearchAccordeonComponent } from './shared/components/search-accordeon/search-accordeon.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet],
+    imports: [RouterOutlet, SearchAccordeonComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })
