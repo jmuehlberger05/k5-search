@@ -51,6 +51,8 @@ export class DialogService {
             elementInjector,
         });
 
+        this.applicationRef.attachView(component.hostView);
+
         const backdropComponent = createComponent(DialogBackdropComponent, {
             environmentInjector: this.applicationRef.injector,
             elementInjector,
@@ -66,8 +68,8 @@ export class DialogService {
             dialogRef.close = (result: TResult) => {
                 container.removeChild(backdropComponent.location.nativeElement);
 
-                // backdropComponent.destroy();
-                component.destroy();
+                backdropComponent.destroy();
+                // component.destroy();
 
                 resolve(result);
             };

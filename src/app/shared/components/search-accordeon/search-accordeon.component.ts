@@ -11,17 +11,18 @@ export class SearchAccordeonComponent {
     protected isOpen = signal<boolean>(false);
 
     protected toggleAccordeon() {
-        this.isOpen.set(!this.isOpen());
+        this.isOpen.update((isOpen) => !isOpen);
         console.log('Accordeon is open:', this.isOpen());
     }
 
     /**
-     * TODO: Fix the Bug that the component does not update when inside the Modal
+     * TODO: Fix the Bug that the UI does not update when inside the Modal
      * TODO: Implement a way to dynamically generate the SearchContent from the JSON
      *
      * TODO: Intuitive Keyboard Navigation
      * TODO: Fix that checkboxes can be tabbed to when accordeon is closed
      *
      * TODO: Implement Dynamic Logic to determine the Height of the Accordeon
+     *
      */
 }

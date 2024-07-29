@@ -13,7 +13,7 @@ export class SearchDialogComponent {
     private readonly dialogRef = inject(DialogRef);
 
     @HostListener('window:keydown', ['$event'])
-    handleKeyboardEvent(event: KeyboardEvent) {
+    public handleKeyboardEvent(event: KeyboardEvent) {
         if (event.key === 'Escape') {
             event.preventDefault();
             this.closeSearchDialog();
