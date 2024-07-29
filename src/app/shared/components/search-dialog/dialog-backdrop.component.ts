@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, HostListener, inject, input } from '@angular/core';
+import { DialogRef, DialogService } from '../../services/dialog.service';
 
 @Component({
     selector: 'app-dialog-backdrop',
@@ -32,5 +33,20 @@ import { Component, input } from '@angular/core';
     `,
 })
 export class DialogBackdropComponent {
+    private readonly dialogRef = inject(DialogRef);
+    private readonly dialogService = inject(DialogService);
+
+    public level = input.required<number>();
     public width = input<string>('clamp(30rem, 60vw, 60rem)');
+
+    @HostListener('window:keydown', ['$event'])
+    public handleKeyboardEvent(event: KeyboardEvent) {
+        if (
+            event.key === 'Escape' &&
+            this.level() === this.dialogService.modalStackCount()
+        ) {
+            event.preventDefault();
+            this.dialogRef.close();
+        }
+    }
 }

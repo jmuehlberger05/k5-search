@@ -1,12 +1,12 @@
 import {
     ApplicationRef,
+    computed,
     createComponent,
     inject,
     Injectable,
     Injector,
-    Signal,
+    signal,
     Type,
-    ViewContainerRef,
 } from '@angular/core';
 import { SearchDialogComponent } from '../components/search-dialog/search-dialog.component';
 import { DOCUMENT } from '@angular/common';
@@ -23,6 +23,9 @@ export class DialogService {
     protected readonly document = inject(DOCUMENT);
     private readonly applicationRef = inject(ApplicationRef);
     private readonly injector = inject(Injector);
+
+    private modalStack = signal<DialogRef<unknown>[]>([]);
+    public readonly modalStackCount = computed(() => this.modalStack().length);
 
     public openSearchDialog() {
         return this.openDialog<SearchDialogComponent, void>(
@@ -59,7 +62,10 @@ export class DialogService {
             projectableNodes: [[component.location.nativeElement]],
         });
 
+        this.modalStack.update((stack) => [...stack, dialogRef]);
+
         backdropComponent.setInput('width', options.width);
+        backdropComponent.setInput('level', this.modalStack().length);
 
         this.applicationRef.attachView(backdropComponent.hostView);
         container.appendChild(backdropComponent.location.nativeElement);
@@ -70,6 +76,10 @@ export class DialogService {
 
                 backdropComponent.destroy();
                 // component.destroy();
+
+                this.modalStack.update((stack) =>
+                    stack.filter((x) => x !== dialogRef)
+                );
 
                 resolve(result);
             };

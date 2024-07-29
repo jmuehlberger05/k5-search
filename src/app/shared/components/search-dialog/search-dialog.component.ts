@@ -12,14 +12,6 @@ import { SearchAccordeonComponent } from '../search-accordeon/search-accordeon.c
 export class SearchDialogComponent {
     private readonly dialogRef = inject(DialogRef);
 
-    @HostListener('window:keydown', ['$event'])
-    public handleKeyboardEvent(event: KeyboardEvent) {
-        if (event.key === 'Escape') {
-            event.preventDefault();
-            this.closeSearchDialog();
-        }
-    }
-
     protected closeSearchDialog() {
         this.dialogRef.close();
     }

@@ -23,6 +23,9 @@ export class AppComponent {
     }
 
     protected async openSearchDialog() {
-        await this.dialogService.openSearchDialog();
+        await Promise.all([
+            this.dialogService.openSearchDialog(),
+            this.dialogService.openSearchDialog(),
+        ]);
     }
 }
