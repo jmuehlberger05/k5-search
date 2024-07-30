@@ -5,11 +5,9 @@
         "content": [
             {
                 "id": 1,
+                "type": "action",
                 "title": "Rechnung erstellen für Lorem Ipsum",
-                "extra": "",
                 "iconLeft": "SVG goes here?",
-                "iconRight": "SVG goes here?",
-                "url": "",
                 "options": [
                     {
                         "id": 1,
@@ -39,10 +37,9 @@
         "content": [
             {
                 "id": 1,
-                "title": "Joey Biden",
-                "extra": "Musterweg 1, 4040 Linz",
-                "iconLeft": "SVG goes here?",
-                "iconRight": "SVG goes here?",
+                "type": "contact",
+                "name": "Joey Biden",
+                "address": "Musterweg 1, 4040 Linz",
                 "url": "URL goes here"
             }
         ]

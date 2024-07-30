@@ -7,23 +7,23 @@ import { DialogRef, DialogService } from '../../services/dialog.service';
     imports: [],
     styles: `
         .dialog {
-        height: clamp(30rem, 60vh, 60rem);
+            height: clamp(30rem, 60vh, 60rem);
 
-        @apply bg-white;
-        @apply rounded-xl;
-        @apply overflow-hidden;
+            @apply bg-white;
+            @apply rounded-xl;
+            @apply overflow-hidden;
         }
 
         .dialog-backdrop {
-        @apply fixed;
-        @apply inset-0;
+            @apply fixed;
+            @apply inset-0;
 
-        @apply grid;
-        @apply place-items-center;
+            @apply grid;
+            @apply place-items-center;
 
-        background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.4);
         }
-  `,
+    `,
     template: `
         <div class="dialog-backdrop">
             <div class="dialog" [style.width]="width()">
