@@ -1,15 +1,15 @@
 import { Component, input, signal } from '@angular/core';
+import { ActionSearchResult } from '../../../dtos';
 
 @Component({
-    selector: 'app-action-item',
+    selector: 'app-search-action-item',
     standalone: true,
     imports: [],
-    templateUrl: './action-item.component.html',
-    styleUrl: './action-item.component.scss',
+    templateUrl: './search-action-item.component.html',
+    styleUrl: './search-action-item.component.scss',
 })
-export class ActionItemComponent {
-    public title = input.required<string>();
-    public icon = input<string>();
+export class SearchActionItemComponent {
+    public action = input.required<ActionSearchResult>();
 
     protected isOpen = signal<boolean>(false);
 

@@ -32,7 +32,7 @@
                 </div>
 
                 <span class="accordeon-header-title-span">
-                    {{ title() }}
+                    {{ action().title }}
                 </span>
             </div>
             <svg
@@ -70,48 +70,58 @@
             </svg>
         </button>
     </h3>
-    <div
-        class="accordeon-content ps-[1.7rem] pb-2 pt-1 relative"
-        [attr.data-open]="isOpen() ? true : false"
-    >
-        <form action="">
-            <ul class="accorden-options-list">
-                <li class="accorden-option-list-element">
-                    <label>
-                        <input type="checkbox" class="mr-1" />
-                        Rabattart auswählen
-                    </label>
-                </li>
-                <li class="accorden-option-list-element">
-                    <label>
-                        <input type="checkbox" class="mr-1" />
-                        Zuschlag auswählen
-                    </label>
-                </li>
-                <li class="accorden-option-list-element">
-                    <label>
-                        <input type="checkbox" class="mr-1" />
-                        Sonderaktionen anzeigen
-                    </label>
-                </li>
-                <li class="accorden-option-list-element">
-                    <label>
-                        <input type="checkbox" class="mr-1" />
-                        Saisonale Rabatte anzeigen
-                    </label>
-                </li>
-                <li class="accorden-option-list-element">
-                    <label>
-                        <input type="checkbox" class="mr-1" />
-                        Gesamtkosten berechnen
-                    </label>
-                </li>
-            </ul>
-        </form>
-        <button
-            class="bg-cyan-600 rounded-md px-4 py-1 absolute right-0 bottom-2 text-white hover:bg-cyan-500 transition-all"
+    @if (isOpen()) {
+        <div
+            class="accordeon-content ps-[1.7rem] pb-2 pt-1 relative"
+            [attr.data-open]="isOpen() ? true : false"
         >
-            3 Tabs öffnen
-        </button>
-    </div>
+            <form action="">
+                <ul class="accorden-options-list">
+                    @for (option of action().options; track $index) {
+                        <li class="accorden-option-list-element">
+                            <label>
+                                <input type="checkbox" class="mr-1" />
+                                {{ option.title }}
+                            </label>
+                        </li>
+                    }
+                    <!-- <li class="accorden-option-list-element">
+                        <label>
+                            <input type="checkbox" class="mr-1" />
+                            Rabattart auswählen
+                        </label>
+                    </li>
+                    <li class="accorden-option-list-element">
+                        <label>
+                            <input type="checkbox" class="mr-1" />
+                            Zuschlag auswählen
+                        </label>
+                    </li>
+                    <li class="accorden-option-list-element">
+                        <label>
+                            <input type="checkbox" class="mr-1" />
+                            Sonderaktionen anzeigen
+                        </label>
+                    </li>
+                    <li class="accorden-option-list-element">
+                        <label>
+                            <input type="checkbox" class="mr-1" />
+                            Saisonale Rabatte anzeigen
+                        </label>
+                    </li>
+                    <li class="accorden-option-list-element">
+                        <label>
+                            <input type="checkbox" class="mr-1" />
+                            Gesamtkosten berechnen
+                        </label>
+                    </li> -->
+                </ul>
+            </form>
+            <button
+                class="bg-cyan-600 rounded-md px-4 py-1 absolute right-0 bottom-2 text-white hover:bg-cyan-500 transition-all"
+            >
+                3 Tabs öffnen
+            </button>
+        </div>
+    }
 </div>
