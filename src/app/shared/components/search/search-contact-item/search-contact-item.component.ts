@@ -6,10 +6,16 @@ import { ContactSearchResult } from '../../../dtos';
     standalone: true,
     imports: [],
     template: `
-        <div class="border-gray-200 border-b-[1px] px-4 overflow-hidden">
-            <button class="flex justify-between gap-4 w-full items-center my-2">
-                <div class="accordeon-header-title flex items-center">
-                    <div class="w-[1.7rem]">
+        <div
+            class="border-gray-200 border-b-[1px] px-4 overflow-hidden focus-within:bg-gray-100"
+        >
+            <button
+                class="flex justify-between gap-4 w-full items-center my-2 focus-within:outline-none"
+            >
+                <div
+                    class="grid grid-cols-[auto_1fr_1.5fr] w-full text-left items-center"
+                >
+                    <div class="w-[1.8rem]">
                         <svg
                             width="20"
                             height="21"
@@ -24,8 +30,11 @@ import { ContactSearchResult } from '../../../dtos';
                         </svg>
                     </div>
 
-                    <span class="accordeon-header-title-span">
+                    <span>
                         {{ contact().name }}
+                    </span>
+                    <span class=" text-sm text-gray-600">
+                        {{ contact().address }}
                     </span>
                 </div>
                 <svg

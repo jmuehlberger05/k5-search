@@ -13,7 +13,7 @@ import { SearchAccordeonComponent } from './shared/components/search-accordeon/s
 export class AppComponent {
     private readonly dialogService = inject(DialogService);
 
-    // ! Problem: Infinite Search Windows can be opened, but when pressing the escape key, all of the open at the same time
+    // ! Problem: Infinite Search Windows can be opened
     @HostListener('window:keydown', ['$event'])
     handleKeyboardEvent(event: KeyboardEvent) {
         if ((event.ctrlKey || event.metaKey) && event.key === 'k') {

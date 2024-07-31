@@ -39,4 +39,11 @@ export class SearchDialogComponent {
     protected closeSearchDialog() {
         this.dialogRef.close();
     }
+
+    /**
+     * TODO: Arrow Key Navigation
+     * TODO: Mouse Hover Navigation -> Select Item when mouse is over it
+     *
+     * TODO: Form Control for the Checkboxes and update Button-Count
+     */
 }
