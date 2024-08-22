@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-search-input',
     standalone: true,
-    imports: [],
+    imports: [ReactiveFormsModule],
     template: `
         <div
             class="grid grid-cols-[1fr_auto] bg-gray-100 border-gray-200 border-b-[1px]"
@@ -34,6 +35,7 @@ import { Component } from '@angular/core';
                 </div>
                 <input
                     class="bg-transparent pr-4 py-4 w-full focus-within:outline-none"
+                    [formControl]="searchControl()"
                     type="text"
                     placeholder="Search..."
                 />
@@ -57,4 +59,6 @@ import { Component } from '@angular/core';
         </div>
     `,
 })
-export class SearchInputComponent {}
+export class SearchInputComponent {
+    public searchControl = input.required<FormControl<string>>();
+}

@@ -1,5 +1,5 @@
-<app-search-input />
-@for (group of searchResults(); track $index) {
+<app-search-input [searchControl]="searchControl" />
+@for (group of filteredSearchResults(); track $index) {
     <app-search-result-group [title]="group.title">
         @for (result of group.results; track $index) {
             @switch (result.type) {
