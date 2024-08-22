@@ -50,15 +50,12 @@ export class DialogBackdropComponent {
         }
     }
 
-    // // Close the dialog when clicking outside of it
-    // // ! This is not working as expected, currenttarget is wrapped in <app-dialog-backdrop> and target is the actual element
+    // Close the dialog when clicking outside of it
     @HostListener('click', ['$event'])
     public handleClick(event: MouseEvent) {
+        const target = event.target as HTMLElement;
         const currentTarget = event.currentTarget as HTMLElement;
-        // console.log(event.target, event.currentTarget);
-        if (
-            currentTarget!.querySelector('.dialog-backdrop')! === event.target
-        ) {
+        if (currentTarget?.querySelector('.dialog-backdrop')! === target) {
             this.dialogRef.close();
         }
     }
