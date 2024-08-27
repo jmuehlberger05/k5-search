@@ -32,7 +32,7 @@
                 </div>
 
                 <span class="accordeon-header-title-span">
-                    {{ action().title }}
+                    {{ action().Title }}
                 </span>
             </div>
             <svg
@@ -77,15 +77,15 @@
         >
             <form action="">
                 <ul class="accorden-options-list">
-                    @for (option of action().options; track $index) {
+                    @for (option of action().Options; track $index) {
                         <li class="accorden-option-list-element">
                             <label>
                                 <input
                                     type="checkbox"
                                     class="mr-1"
-                                    [checked]="option.checked"
+                                    [checked]="option.Checked"
                                 />
-                                {{ option.title }}
+                                {{ option.Title }}
                             </label>
                         </li>
                     }

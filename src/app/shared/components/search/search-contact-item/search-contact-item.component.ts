@@ -31,10 +31,10 @@ import { ContactSearchResult } from '../../../dtos';
                     </div>
 
                     <span>
-                        {{ contact().name }}
+                        {{ contact().Name }}
                     </span>
                     <span class=" text-sm text-gray-600">
-                        {{ contact().address }}
+                        {{ contact().Address }}
                     </span>
                 </div>
                 <svg

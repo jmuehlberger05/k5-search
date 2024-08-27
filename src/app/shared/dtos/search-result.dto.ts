@@ -1,28 +1,28 @@
 export type SearchResultGroup = {
-    id: number;
-    title: string;
-    results: ContactSearchResult[] | ActionSearchResult[];
+    Id: number;
+    Title: string;
+    Results: ContactSearchResult[] | ActionSearchResult[];
 };
 
 export type ContactSearchResult = {
-    id: number;
-    type: 'contact';
-    name: string;
-    address: string;
-    url: string;
+    Id: number;
+    Type: 'contact';
+    Name: string;
+    Address: string;
+    Url: string;
 };
 
 export type ActionSearchResult = {
-    id: number;
-    type: 'action';
-    title: string;
-    icon: string;
-    options: ActionSearchResultOption[];
+    Id: number;
+    Type: 'action';
+    Title: string;
+    Icon: string;
+    Options: ActionSearchResultOption[];
 };
 
 export type ActionSearchResultOption = {
-    id: number;
-    title: string;
-    checked: boolean;
-    url: string;
+    Id: number;
+    Title: string;
+    Checked: boolean;
+    Url: string;
 };

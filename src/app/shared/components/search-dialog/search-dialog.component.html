@@ -1,8 +1,8 @@
 <app-search-input [searchControl]="searchControl" />
 @for (group of filteredSearchResults(); track $index) {
-    <app-search-result-group [title]="group.title">
-        @for (result of group.results; track $index) {
-            @switch (result.type) {
+    <app-search-result-group [title]="group.Title">
+        @for (result of group.Results; track $index) {
+            @switch (result.Type) {
                 @case ("action") {
                     <app-search-action-item [action]="result" />
                 }

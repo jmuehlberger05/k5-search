@@ -65,7 +65,7 @@ export class SearchDialogComponent {
         console.log(this.searchResults());
         const filteredResults = this.searchResults().filter(
             (g: SearchResultGroup) => {
-                return g.title.toLowerCase().includes(value.toLowerCase());
+                return g.Title.toLowerCase().includes(value.toLowerCase());
             },
         );
         this.filteredSearchResults.set(filteredResults);
