@@ -1,8 +1,8 @@
 <app-search-input [searchControl]="searchControl" />
-@for (group of filteredSearchResults(); track $index) {
-    <app-search-result-group [title]="group.Title">
-        @for (result of group.Results; track $index) {
-            @switch (result.Type) {
+<!-- @for (group of filteredSearchResults(); track $index) {
+    <app-search-result-group [title]="group.title">
+        @for (result of group.results; track $index) {
+            @switch (result.type) {
                 @case ("action") {
                     <app-search-action-item [action]="result" />
                 }
@@ -10,6 +10,30 @@
                     <app-search-contact-item [contact]="result" />
                 }
             }
+        }
+    </app-search-result-group>
+    } -->
+
+@if (APISearchResults().workflows.length > 0) {
+    <app-search-result-group title="Workflows">
+        @for (workflow of APISearchResults().workflows; track $index) {
+            <app-workflow-action-item [workflow]="workflow" />
+        }
+    </app-search-result-group>
+}
+
+@if (APISearchResults().contacts.length > 0) {
+    <app-search-result-group title="Kontakte">
+        @for (contact of APISearchResults().contacts; track $index) {
+            <app-search-contact-item [contact]="contact" />
+        }
+    </app-search-result-group>
+}
+
+@if (APISearchResults().tasks.length > 0) {
+    <app-search-result-group title="Tasks">
+        @for (task of APISearchResults().tasks; track $index) {
+            <app-search-task-item [task]="task" />
         }
     </app-search-result-group>
 }

@@ -8,18 +8,17 @@ import { DialogRef, DialogService } from '../../services/dialog.service';
     styles: `
         .dialog {
             height: clamp(30rem, 60vh, 60rem);
+            margin-inline: auto;
 
-            @apply bg-white;
+            background-color: white;
             @apply rounded-xl;
             @apply overflow-hidden;
         }
 
         .dialog-backdrop {
-            @apply fixed;
-            @apply inset-0;
-
-            @apply grid;
-            @apply place-items-center;
+            position: fixed;
+            inset: 0;
+            padding-top: clamp(1rem, 10vh, 20rem);
 
             background-color: rgba(0, 0, 0, 0.4);
         }

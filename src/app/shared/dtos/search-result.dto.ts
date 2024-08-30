@@ -1,28 +1,69 @@
-export type SearchResultGroup = {
-    Id: number;
-    Title: string;
-    Results: ContactSearchResult[] | ActionSearchResult[];
+import { IconName } from '../components/icons/icon.component';
+
+// export type SearchResultGroup = {
+//     id: number;
+//     title: string;
+//     results: ContactSearchResult[] | ActionSearchResult[];
+// };
+
+// export type ContactSearchResult = {
+//     id: string;
+//     type: 'contact';
+//     name: string;
+//     address: string;
+//     url: string;
+// };
+
+// export type ActionSearchResult = {
+//     id: string;
+//     type: 'workflow';
+//     title: string;
+//     icon: string;
+//     options: ActionSearchResultOption[];
+// };
+
+// export type ActionSearchResultOption = {
+//     id: string;
+//     title: string;
+//     checked: boolean;
+//     url: string;
+// };
+
+// DTOs
+
+export type SearchResultDTO = {
+    contacts: ContactSearchResultDTO[];
+    workflows: WorkflowSearchResultDTO[];
+    tasks: TaskSearchResultDTO[];
 };
 
-export type ContactSearchResult = {
-    Id: number;
-    Type: 'contact';
-    Name: string;
-    Address: string;
-    Url: string;
+export type ContactSearchResultDTO = {
+    id: string;
+    type: 'contact';
+    name: string;
+    address: string;
+    url: string;
 };
 
-export type ActionSearchResult = {
-    Id: number;
-    Type: 'action';
-    Title: string;
-    Icon: string;
-    Options: ActionSearchResultOption[];
+export type WorkflowSearchResultDTO = {
+    id: string;
+    type: 'workflow';
+    title: string;
+    icon: string;
+    options: WorkflowSearchResultOptionDTO[];
 };
 
-export type ActionSearchResultOption = {
-    Id: number;
-    Title: string;
-    Checked: boolean;
-    Url: string;
+export type WorkflowSearchResultOptionDTO = {
+    id: string;
+    title: string;
+    checked: boolean;
+    url: string;
+};
+
+export type TaskSearchResultDTO = {
+    id: string;
+    type: 'task';
+    title: string;
+    icon: IconName;
+    url: string;
 };

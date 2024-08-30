@@ -1,121 +1,121 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { SearchResultGroup } from '../dtos';
+import { SearchResultDTO } from '../dtos';
 
-const data: SearchResultGroup[] = [
-    {
-        Id: 1,
-        Title: 'Workflow',
-        Results: [
-            {
-                Id: 1,
-                Type: 'action',
-                Title: 'Rechnung erstellen für Lorem Ipsum',
-                Icon: 'SVG goes here?',
-                Options: [
-                    {
-                        Id: 1,
-                        Title: 'Rabattart wählen',
-                        Checked: true,
-                        Url: 'Url goes here',
-                    },
-                    {
-                        Id: 2,
-                        Title: 'Zuschlag wählen',
-                        Checked: true,
-                        Url: 'Url goes here',
-                    },
-                    {
-                        Id: 3,
-                        Title: 'Sonderaktionen anzeigen',
-                        Checked: false,
-                        Url: 'Url goes here',
-                    },
-                ],
-            },
-            {
-                Id: 1,
-                Type: 'action',
-                Title: 'Vorlagen für Eingangsrechnungen',
-                Icon: 'SVG goes here?',
-                Options: [
-                    {
-                        Id: 1,
-                        Title: 'Rabattart wählen',
-                        Checked: true,
-                        Url: 'Url goes here',
-                    },
-                    {
-                        Id: 2,
-                        Title: 'Zuschlag wählen',
-                        Checked: true,
-                        Url: 'Url goes here',
-                    },
-                    {
-                        Id: 3,
-                        Title: 'Sonderaktionen anzeigen',
-                        Checked: false,
-                        Url: 'Url goes here',
-                    },
-                ],
-            },
-            {
-                Id: 1,
-                Type: 'action',
-                Title: 'Rechnungsdetails eingeben',
-                Icon: 'SVG goes here?',
-                Options: [
-                    {
-                        Id: 1,
-                        Title: 'Rabattart wählen',
-                        Checked: true,
-                        Url: 'Url goes here',
-                    },
-                    {
-                        Id: 2,
-                        Title: 'Zuschlag wählen',
-                        Checked: true,
-                        Url: 'Url goes here',
-                    },
-                    {
-                        Id: 3,
-                        Title: 'Sonderaktionen anzeigen',
-                        Checked: false,
-                        Url: 'Url goes here',
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        Id: 2,
-        Title: 'Kontakte',
-        Results: [
-            {
-                Id: 1,
-                Type: 'contact',
-                Name: 'Joey Byden',
-                Address: 'Musterweg 1, 4040 Linz',
-                Url: 'Url goes here',
-            },
-            {
-                Id: 1,
-                Type: 'contact',
-                Name: 'Borat Obamna',
-                Address: 'Landstraße 71, 4040 Linz',
-                Url: 'Url goes here',
-            },
-            {
-                Id: 1,
-                Type: 'contact',
-                Name: 'Don Tromp',
-                Address: 'Domplatz 5, 4040 Linz',
-                Url: 'Url goes here',
-            },
-        ],
-    },
-];
+// const data: SearchResultGroup[] = [
+//     {
+//         id: 1,
+//         title: 'Workflow',
+//         results: [
+//             {
+//                 id: 'string',
+//                 type: 'workflow',
+//                 title: 'Rechnung erstellen für Lorem Ipsum',
+//                 icon: 'SVG goes here?',
+//                 options: [
+//                     {
+//                         id: 'string',
+//                         title: 'Rabattart wählen',
+//                         checked: true,
+//                         url: 'url goes here',
+//                     },
+//                     {
+//                         id: 'string',
+//                         title: 'Zuschlag wählen',
+//                         checked: true,
+//                         url: 'url goes here',
+//                     },
+//                     {
+//                         id: 'string',
+//                         title: 'Sonderaktionen anzeigen',
+//                         checked: false,
+//                         url: 'url goes here',
+//                     },
+//                 ],
+//             },
+//             {
+//                 id: 'string',
+//                 type: 'workflow',
+//                 title: 'Vorlagen für Eingangsrechnungen',
+//                 icon: 'SVG goes here?',
+//                 options: [
+//                     {
+//                         id: 'string',
+//                         title: 'Rabattart wählen',
+//                         checked: true,
+//                         url: 'url goes here',
+//                     },
+//                     {
+//                         id: 'string',
+//                         title: 'Zuschlag wählen',
+//                         checked: true,
+//                         url: 'url goes here',
+//                     },
+//                     {
+//                         id: 'string',
+//                         title: 'Sonderaktionen anzeigen',
+//                         checked: false,
+//                         url: 'url goes here',
+//                     },
+//                 ],
+//             },
+//             {
+//                 id: 'string',
+//                 type: 'workflow',
+//                 title: 'Rechnungsdetails eingeben',
+//                 icon: 'SVG goes here?',
+//                 options: [
+//                     {
+//                         id: 'string',
+//                         title: 'Rabattart wählen',
+//                         checked: true,
+//                         url: 'url goes here',
+//                     },
+//                     {
+//                         id: 'string',
+//                         title: 'Zuschlag wählen',
+//                         checked: true,
+//                         url: 'url goes here',
+//                     },
+//                     {
+//                         id: 'string',
+//                         title: 'Sonderaktionen anzeigen',
+//                         checked: false,
+//                         url: 'url goes here',
+//                     },
+//                 ],
+//             },
+//         ],
+//     },
+//     {
+//         id: 2,
+//         title: 'Kontakte',
+//         results: [
+//             {
+//                 id: 'string',
+//                 type: 'contact',
+//                 name: 'Joey Byden',
+//                 address: 'Musterweg 1, 4040 Linz',
+//                 url: 'url goes here',
+//             },
+//             {
+//                 id: 'string',
+//                 type: 'contact',
+//                 name: 'Borat Obamna',
+//                 address: 'Landstraße 71, 4040 Linz',
+//                 url: 'url goes here',
+//             },
+//             {
+//                 id: 'string',
+//                 type: 'contact',
+//                 name: 'Don Tromp',
+//                 address: 'Domplatz 5, 4040 Linz',
+//                 url: 'url goes here',
+//             },
+//         ],
+//     },
+// ];
 
 @Injectable({
     providedIn: 'root',
@@ -123,11 +123,29 @@ const data: SearchResultGroup[] = [
 export class SearchService {
     private readonly http = inject(HttpClient);
 
-    public async getData(): Promise<SearchResultGroup[]> {
-        return Promise.resolve(data);
+    public async getInitialData(): Promise<SearchResultDTO> {
+        return Promise.resolve({
+            contacts: [],
+            workflows: [],
+            tasks: [],
+        });
+    }
 
-        return firstValueFrom(
-            this.http.get<any[]>('https://jsonplaceholder.typicode.com/users'),
+    public async getSearchData(query: string): Promise<SearchResultDTO> {
+        // if (!query) {
+        //     return Promise.resolve({
+        //         contacts: [],
+        //         workflows: [],
+        //         tasks: [],
+        //     });
+        // }
+        if (!query) {
+            query = 'a';
+        }
+        return await firstValueFrom(
+            this.http.get<SearchResultDTO>(
+                `https://localhost:7189/search/${query}`,
+            ),
         );
     }
 }
