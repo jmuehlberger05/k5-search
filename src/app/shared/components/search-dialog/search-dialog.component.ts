@@ -24,6 +24,28 @@ import { SearchTaskItemComponent } from '../search/search-task-item/search-task-
         SearchTaskItemComponent,
     ],
     templateUrl: './search-dialog.component.html',
+    styles: `
+        /* width */
+        .search-results::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        .search-results::-webkit-scrollbar-track {
+            @apply bg-neutral-100;
+        }
+
+        /* Handle */
+        .search-results::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        /* Handle on hover */
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    `,
 })
 export class SearchDialogComponent {
     private readonly dialogRef = inject(DialogRef);

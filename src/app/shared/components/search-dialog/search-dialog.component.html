@@ -13,27 +13,28 @@
         }
     </app-search-result-group>
     } -->
+<div class="search-results w-full h-full overflow-y-auto pb-20">
+    @if (APISearchResults().workflows.length > 0) {
+        <app-search-result-group title="Workflows">
+            @for (workflow of APISearchResults().workflows; track $index) {
+                <app-workflow-action-item [workflow]="workflow" />
+            }
+        </app-search-result-group>
+    }
 
-@if (APISearchResults().workflows.length > 0) {
-    <app-search-result-group title="Workflows">
-        @for (workflow of APISearchResults().workflows; track $index) {
-            <app-workflow-action-item [workflow]="workflow" />
-        }
-    </app-search-result-group>
-}
+    @if (APISearchResults().contacts.length > 0) {
+        <app-search-result-group title="Kontakte">
+            @for (contact of APISearchResults().contacts; track $index) {
+                <app-search-contact-item [contact]="contact" />
+            }
+        </app-search-result-group>
+    }
 
-@if (APISearchResults().contacts.length > 0) {
-    <app-search-result-group title="Kontakte">
-        @for (contact of APISearchResults().contacts; track $index) {
-            <app-search-contact-item [contact]="contact" />
-        }
-    </app-search-result-group>
-}
-
-@if (APISearchResults().tasks.length > 0) {
-    <app-search-result-group title="Tasks">
-        @for (task of APISearchResults().tasks; track $index) {
-            <app-search-task-item [task]="task" />
-        }
-    </app-search-result-group>
-}
+    @if (APISearchResults().tasks.length > 0) {
+        <app-search-result-group title="Tasks">
+            @for (task of APISearchResults().tasks; track $index) {
+                <app-search-task-item [task]="task" />
+            }
+        </app-search-result-group>
+    }
+</div>

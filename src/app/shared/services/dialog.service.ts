@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { SearchDialogComponent } from '../components/search-dialog/search-dialog.component';
 import { DOCUMENT } from '@angular/common';
-import { DialogBackdropComponent } from '../components/search-dialog/dialog-backdrop.component';
+import { DialogBackdropComponent } from '../components/dialog/dialog-backdrop.component';
 
 export class DialogRef<TResult = void> {
     close(result: TResult | null = null): void {}
@@ -32,13 +32,13 @@ export class DialogService {
             SearchDialogComponent,
             {
                 width: 'clamp(30rem, 60vw, 60rem)',
-            }
+            },
         );
     }
 
     private openDialog<TComponent, TResult>(
         componentType: Type<TComponent>,
-        options: { width: string | null }
+        options: { width: string | null },
     ) {
         const container = this.document.body;
 
@@ -78,7 +78,7 @@ export class DialogService {
                 // component.destroy();
 
                 this.modalStack.update((stack) =>
-                    stack.filter((x) => x !== dialogRef)
+                    stack.filter((x) => x !== dialogRef),
                 );
 
                 resolve(result);
