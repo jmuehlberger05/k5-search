@@ -6,12 +6,6 @@ import {
 import { AppIconComponent } from '../../icons/icon.component';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 
-type ReactiveCheckFormItem = {
-    id: string;
-    title: string;
-    url: string;
-};
-
 @Component({
     selector: 'app-workflow-action-item',
     standalone: true,

@@ -1,23 +1,21 @@
 import { Component, DestroyRef, inject, signal } from '@angular/core';
-import { DialogRef } from '../../services/dialog.service';
+import { DialogRef } from '../../../services/dialog.service';
 import { SearchInputComponent } from '../search-input/search-input.component';
-import { SearchAccordeonComponent } from '../search-accordeon/search-accordeon.component';
-import { SearchService } from '../../services/search.service';
-import { SearchResultDTO } from '../../dtos';
-import { SearchResultGroupComponent } from '../search/search-result-group/search-result-group.component';
-import { SearchContactItemComponent } from '../search/search-contact-item/search-contact-item.component';
-import { SearchWorkflowItemComponent } from '../search/search-workflow-item/search-workflow-item.component';
+import { SearchService } from '../../../services/search.service';
+import { SearchResultDTO } from '../../../dtos';
+import { SearchResultGroupComponent } from '../search-result-group/search-result-group.component';
+import { SearchContactItemComponent } from '../search-contact-item/search-contact-item.component';
+import { SearchWorkflowItemComponent } from '../search-workflow-item/search-workflow-item.component';
 import { NonNullableFormBuilder } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { SearchTaskItemComponent } from '../search/search-task-item/search-task-item.component';
+import { SearchTaskItemComponent } from '../search-task-item/search-task-item.component';
 
 @Component({
     selector: 'app-search-dialog',
     standalone: true,
     imports: [
         SearchInputComponent,
-        SearchAccordeonComponent,
         SearchResultGroupComponent,
         SearchContactItemComponent,
         SearchWorkflowItemComponent,

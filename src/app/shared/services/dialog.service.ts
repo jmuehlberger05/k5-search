@@ -8,7 +8,7 @@ import {
     signal,
     Type,
 } from '@angular/core';
-import { SearchDialogComponent } from '../components/search-dialog/search-dialog.component';
+import { SearchDialogComponent } from '../components/search/search-dialog/search-dialog.component';
 import { DOCUMENT } from '@angular/common';
 import { DialogBackdropComponent } from '../components/dialog/dialog-backdrop.component';
 

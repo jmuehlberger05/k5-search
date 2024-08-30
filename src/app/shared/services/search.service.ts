@@ -124,11 +124,11 @@ export class SearchService {
     private readonly http = inject(HttpClient);
 
     public async getInitialData(): Promise<SearchResultDTO> {
-        return Promise.resolve({
-            contacts: [],
-            workflows: [],
-            tasks: [],
-        });
+        return await firstValueFrom(
+            this.http.get<SearchResultDTO>(
+                `https://localhost:7189/search/${'a'}`,
+            ),
+        );
     }
 
     public async getSearchData(query: string): Promise<SearchResultDTO> {
